@@ -3,7 +3,14 @@
 %% Creating a convolution network for the task of image classification
 
 %% using CIFAR10
-layersRaw = [
+
+options = trainingOptions('sgdm', ...
+    'MaxEpochs',300,...
+    'InitialLearnRate',2e-3, ...
+    'Verbose',false, ...
+    'Plots','training-progress');
+
+layers = [
     imageInputLayer([32 32 3])...
     convolution2dLayer(3,8)
     reluLayer
@@ -17,3 +24,6 @@ layersRaw = [
     reluLayer
     fullyConnectedLayer(10)
     classificationLayer];
+
+
+net = trainNetwork(,layers,options);
