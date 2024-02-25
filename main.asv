@@ -5,7 +5,7 @@
 %% using CIFAR10 dataset
 numImages = size(data,1);
 
-%matching numerical values to categories
+%%matching numerical values to categories
 labels_categorical = label_names(labels + 1);
 counter = (1:numImages)';
 
@@ -27,7 +27,6 @@ for i = 1:numImages
     cellArrayImages{i} = reshaped_images(:, :, :, i);
 end
 
-trainData = [cellArrayImages, labels_categorical];
 
 options = trainingOptions('sgdm', ...
     'MaxEpochs',20,...
@@ -52,4 +51,4 @@ layers = [
     classificationLayer];
 
 
-net = trainNetwork(trainData,layers,options);
+%%net = trainNetwork(TableTrain,layers,options);
