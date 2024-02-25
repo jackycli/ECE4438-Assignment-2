@@ -7,12 +7,8 @@ numImages = size(data,1);
 
 %%matching numerical values to categories
 labels_categorical = label_names(labels + 1);
-counter = (1:numImages)';
-for i = 1:numImages
-    % Assign data and label to each cell
-    TableTrain{i, 1} = data(counter(i), :);
-    TableTrain{i, 2} = labels_categorical(counter(i));
-end
+counter = (1:x+1)';
+TableTrain = {data(c), labels_categorical(:)};
 
 options = trainingOptions('sgdm', ...
     'MaxEpochs',20,...
