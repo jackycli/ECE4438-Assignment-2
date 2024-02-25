@@ -7,7 +7,6 @@ numImages = size(data,1);
 
 %matching numerical values to categories
 labels_categorical = label_names(labels + 1);
-counter = (1:numImages)';
 
 % Define the dimensions of the images
 imageHeight = 32;
@@ -45,8 +44,6 @@ layers = [
     convolution2dLayer(3,32)
     reluLayer
     convolution2dLayer(3,64)
-    reluLayer
-    convolution2dLayer(3,128)
     reluLayer
     fullyConnectedLayer(10)
     classificationLayer];
