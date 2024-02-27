@@ -17,11 +17,14 @@ trainBatchLabels = cat(1, Tr1.labels, Tr2.labels, Tr3.labels, Tr4.labels, Tr5.la
 for i = 1:size(trainBatchData, 1)
     % reshape to image multidimensional array
     temp = reshape(trainBatchData(i, :), [32, 32, 3]);
-    temp = pagetranspose(temp);
     % image is reshaped to fill column first, but the data is row first
     % thus transpose
-    TrainingTable(i, :) = {temp, trainBatchLabels(i)};
+    temp = pagetranspose(temp);
+    
+    TrainingData(i, :) = {temp};
 end
+
+TrainingTable = table(TrainingData, categorical(trainBatchLabels));
 
 %% Testing Table
 % Read in the data and create the testing table
@@ -34,7 +37,8 @@ for i = 1:size(Ts1.data, 1)
     % image is reshaped to fill column first, but the data is row first
     % thus transpose
     temp = pagetranspose(temp); 
-    
-    TestingTable(i, :) = {temp, Ts1.labels(i)};
+
+    TestingData(i, :) = {temp};
 end
 
+TestingTable = table(TestingData, categorical(Ts1.labels));
