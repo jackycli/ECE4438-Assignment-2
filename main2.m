@@ -45,11 +45,11 @@ layers = [
     classificationLayer];
 
 %%train
-net = trainNetwork(TrainingTable, layers, options);
+[net netInfo2] = trainNetwork(TrainingTable, layers, options);
 
 %%test
 NetworkPredict = classify(net, TestingTable(:,1));
 LabelTest = TestingTable{:,2};
 AccuracyTest = sum(NetworkPredict == LabelTest)/numel(LabelTest);
-disp("Testing Accuracy:")
-disp(AccuracyTest)
+
+DisplayInfo(netInfo2.TrainingAccuracy(end), AccuracyTest2, 2);
