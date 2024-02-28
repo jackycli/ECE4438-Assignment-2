@@ -39,7 +39,6 @@ layers = [
     convolution2dLayer(3,256, 'Padding','same') 
     batchNormalizationLayer
     reluLayer 
-    
     fullyConnectedLayer(10)
     softmaxLayer
     classificationLayer];
