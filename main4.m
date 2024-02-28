@@ -20,7 +20,10 @@ options = trainingOptions('sgdm', ...
 %%layers 
 layers = [
     imageInputLayer([32 32 3]) 
-    convolution2dLayer(3,8, 'Padding','same') 
+    convolution2dLayer(3,4, 'Padding','same') 
+    batchNormalizationLayer
+    reluLayer 
+    convolution2dLayer(3,16, 'Padding','same') 
     batchNormalizationLayer
     reluLayer 
     convolution2dLayer(3,32, 'Padding','same') 
@@ -30,9 +33,6 @@ layers = [
     batchNormalizationLayer
     reluLayer 
     convolution2dLayer(3,128, 'Padding','same') 
-    batchNormalizationLayer
-    reluLayer 
-    convolution2dLayer(3,256, 'Padding','same') 
     batchNormalizationLayer
     reluLayer 
     fullyConnectedLayer(10)
