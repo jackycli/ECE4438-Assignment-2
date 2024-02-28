@@ -5,6 +5,8 @@
 %% using CIFAR10 dataset
 OrganizeData;
 
+%%Type 1 
+
 
 %%options
 options = trainingOptions('sgdm', ...
