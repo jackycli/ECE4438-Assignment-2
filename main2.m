@@ -50,6 +50,6 @@ layers = [
 %%test
 NetworkPredict = classify(net, TestingTable(:,1));
 LabelTest = TestingTable{:,2};
-AccuracyTest = sum(NetworkPredict == LabelTest)/numel(LabelTest);
+AccuracyTest2 = sum(NetworkPredict == LabelTest)/numel(LabelTest);
 
 DisplayInfo(netInfo2.TrainingAccuracy(end), AccuracyTest2, 2);
